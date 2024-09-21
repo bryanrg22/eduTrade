@@ -12,63 +12,61 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # 'C'
-def create_stock_analysis(ticker, description, sentiment, action, positive, neutral, negative, date):
+# prev. create_stock_analysis
+def create_user(user, age, email, password, portfolio_initial, retirement_age):
     # Extract data from the Gemini response
     
     # Create a Firestore document reference based on stock ticker
-    doc_ref = db.collection('user').document(ticker)
+    doc_ref = db.collection('user').document(user)
 
     # Data structure that matches your Firestore scheme
     data = {
-        'action': action,
-        'date': date,
-        'description': description,
-        'negative': negative,
-        'neutral': neutral,
-        'positive': positive,
-        'sentiment': sentiment
+        'password': password,
+        'age': age,
+        'portfolio_initial': portfolio_initial,
+        'email': email,
+        'retirement-age': retirement_age
     }
 
     # Set document data in Firestore
     doc_ref.set(data)
 
 # 'R'
-def check_for_stock(ticker):
-    doc = db.collection('stocks').document(ticker).get()
+# prev. check_for_stock(user)
+def check_for_user(user):
+    doc = db.collection('stocks').document(user).get()
     if doc.exists:
         return True
     else:
         return False
     
-def read_stock_analysis(ticker):
-    doc = db.collection('stocks').document(ticker).get()
+#prev. read_stock_analysis()
+def read_user(user):
+    doc = db.collection('stocks').document(user).get()
     data = doc.to_dict()
     
-    sentiment = data.get('sentiment')
-    description = data.get('description')
-    action = data.get('action')
-    date = data.get('date')
-    positive = data.get('positive')
-    neutral = data.get('neutral')
-    negative = data.get('negative')
+    password = data.get('password')
+    age = data.get('age')
+    portfolio_initial  = data.get('portfolio_intiial')
+    email = data.get('email')
+    retirement_age = data.get('retirement_age')
 
     return jsonify({
-        "ticker": ticker,
-        "sentiment": sentiment,
-        "description": description,
-        "action": action,
-        "date": date, 
-        "positive": positive,
-        "neutral": neutral,
-        "negative": negative 
+        'password': password,
+        'age': age,
+        'portfolio_initial': portfolio_initial,
+        'email': email,
+        'retirement-age': retirement_age
     })
 
 # 'U'
-def update_stock_analysis(ticker, paramter, value):
-    db.collection('stocks').document(ticker).update({
+# prev. update_stock_analysis()
+def update_user(user, paramter, value):
+    db.collection('stocks').document(user).update({
         paramter: value
     })
 
 # 'D'
-def delete_stock_analysis(ticker):
-    db.collection('stocks').document(ticker).delete()
+# prev. delete_user()
+def delete_user(user):
+    db.collection('stocks').document(user).delete()
