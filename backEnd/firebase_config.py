@@ -34,7 +34,7 @@ def create_user(user, age, email, password, portfolio_initial, retirement_age):
 # 'R'
 # prev. check_for_stock(user)
 def check_for_user(user):
-    doc = db.collection('stocks').document(user).get()
+    doc = db.collection('user').document(user).get()
     if doc.exists:
         return True
     else:
@@ -42,7 +42,7 @@ def check_for_user(user):
     
 #prev. read_stock_analysis()
 def read_user(user):
-    doc = db.collection('stocks').document(user).get()
+    doc = db.collection('user').document(user).get()
     data = doc.to_dict()
     
     password = data.get('password')
@@ -62,11 +62,11 @@ def read_user(user):
 # 'U'
 # prev. update_stock_analysis()
 def update_user(user, paramter, value):
-    db.collection('stocks').document(user).update({
+    db.collection('user').document(user).update({
         paramter: value
     })
 
 # 'D'
 # prev. delete_user()
 def delete_user(user):
-    db.collection('stocks').document(user).delete()
+    db.collection('user').document(user).delete()
