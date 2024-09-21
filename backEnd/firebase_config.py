@@ -13,7 +13,7 @@ db = firestore.client()
 
 # 'C'
 # prev. create_stock_analysis
-def create_user(user, age, email, password, portfolio_initial, retirement_age):
+def create_user(name, user, age, email, password, portfolio_initial, retirement_age):
     
     
     # Create a Firestore document reference based on stock ticker
@@ -21,6 +21,7 @@ def create_user(user, age, email, password, portfolio_initial, retirement_age):
 
     # Data structure that matches your Firestore scheme
     data = {
+        'name' : name,
         'password': password,
         'age': age,
         'portfolio_initial': portfolio_initial,
@@ -45,6 +46,7 @@ def read_user(user):
     doc = db.collection('user').document(user).get()
     data = doc.to_dict()
     
+    name = data.get('name')
     password = data.get('password')
     age = data.get('age')
     portfolio_initial  = data.get('portfolio_intiial')
@@ -52,6 +54,7 @@ def read_user(user):
     retirement_age = data.get('retirement_age')
 
     return jsonify({
+        'name' : name,
         'password': password,
         'age': age,
         'portfolio_initial': portfolio_initial,
