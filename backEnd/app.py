@@ -20,3 +20,4 @@ def home():
 
 def get_stock_data(ticker):
     
+
