@@ -17,6 +17,7 @@ def home():
 
 #@app.route('/stocks/parse/<ticker>')
 @app.route('/stock/<string:ticker>', methods=['GET'])
+    
 
-def get_stock_data(ticker):
-    return ""
+#def get_stock_data(ticker):
+#    return ""
