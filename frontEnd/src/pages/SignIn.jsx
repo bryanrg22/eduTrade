@@ -17,11 +17,11 @@ export default function SignIn() {
     if (isNewUser) {
       // Add your registration logic here
       console.log('Registration attempt with:', { email, password, confirmPassword })
-      navigate('/HomePage') // Navigate to HomePage after registration
+      navigate('/Questionnaire') // Navigate to Questionnaire after registration
     } else {
       // Add your sign-in logic here
       console.log('Sign in attempt with:', { username, password })
-      navigate('/HomePage') // Navigate to HomePage after sign-in
+      navigate('/Questionnaire') // Navigate to Questionnaire after sign-in
     }
   }
 
