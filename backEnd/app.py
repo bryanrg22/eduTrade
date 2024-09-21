@@ -18,4 +18,7 @@ def home():
 @app.route('/user/parse/<ticker>')
 #@app.route('/user/<string:ticker>', methods=['GET'])
 def get_user_data(ticker):
-    return read_user(ticker)
+    if check_for_user(ticker):
+        return jsonify({"message": "Found!"})
+    else:
+        return jsonify({"message": "Not Found!"})
