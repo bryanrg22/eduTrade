@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import React from 'react'
 
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Tracker" element={<Tracker />} />
+      <Route path="/" element={<HomePage />} />
     </Routes>
   </Router>
 );
