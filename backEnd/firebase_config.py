@@ -13,23 +13,16 @@ db = firestore.client()
 
 # 'C'
 # prev. create_stock_analysis
-def create_user(name, user, age, email, password, portfolio_initial, retirement_age):
-    
-    
-    # Create a Firestore document reference based on stock ticker
+def create_user_in_firestore(name, user, age, email, password, portfolio_initial, retirement_age):
     doc_ref = db.collection('user').document(user)
-
-    # Data structure that matches your Firestore scheme
     data = {
-        'name' : name,
+        'name': name,
         'password': password,
         'age': age,
         'portfolio_initial': portfolio_initial,
         'email': email,
         'retirement-age': retirement_age
     }
-
-    # Set document data in Firestore
     doc_ref.set(data)
 
 # 'R'
@@ -73,3 +66,5 @@ def update_user(user, paramter, value):
 # prev. delete_user()
 def delete_user(user):
     db.collection('user').document(user).delete()
+
+
