@@ -1,3 +1,3 @@
 from backEnd.StockUtilities import *;
 
-StockHistoryOutput.plot_stock_history("AMZN")
+StockUtilities.plot_stock_history("AMZN")

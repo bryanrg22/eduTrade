@@ -53,7 +53,7 @@ export default function HomePage() {
             <img
               alt="User avatar"
               className="w-8 h-8 rounded-full"
-              src="/default_pfp.webp"
+              src="pfpdefault_pfp.jpg"
               style={{
                 aspectRatio: "1/1",
                 objectFit: "cover",
