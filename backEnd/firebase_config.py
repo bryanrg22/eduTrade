@@ -3,7 +3,7 @@ from firebase_admin import credentials, firestore
 from flask import jsonify
 
 # Use the downloaded service account key JSON file
-cred = credentials.Certificate("./pennapps-f858c-firebase-adminsdk-6fjg6-3a09c6ee8a.json")
+#cred = credentials.Certificate("./pennapps-f858c-firebase-adminsdk-6fjg6-3a09c6ee8a.json")
 
 # Initialize the Firebase app with your credentials
 firebase_admin.initialize_app(cred)
@@ -14,7 +14,7 @@ db = firestore.client()
 # 'C'
 # prev. create_stock_analysis
 def create_user(user, age, email, password, portfolio_initial, retirement_age):
-    # Extract data from the Gemini response
+    
     
     # Create a Firestore document reference based on stock ticker
     doc_ref = db.collection('user').document(user)
@@ -34,7 +34,7 @@ def create_user(user, age, email, password, portfolio_initial, retirement_age):
 # 'R'
 # prev. check_for_stock(user)
 def check_for_user(user):
-    doc = db.collection('stocks').document(user).get()
+    doc = db.collection('user').document(user).get()
     if doc.exists:
         return True
     else:
@@ -42,7 +42,7 @@ def check_for_user(user):
     
 #prev. read_stock_analysis()
 def read_user(user):
-    doc = db.collection('stocks').document(user).get()
+    doc = db.collection('user').document(user).get()
     data = doc.to_dict()
     
     password = data.get('password')
@@ -62,11 +62,11 @@ def read_user(user):
 # 'U'
 # prev. update_stock_analysis()
 def update_user(user, paramter, value):
-    db.collection('stocks').document(user).update({
+    db.collection('user').document(user).update({
         paramter: value
     })
 
 # 'D'
 # prev. delete_user()
 def delete_user(user):
-    db.collection('stocks').document(user).delete()
+    db.collection('user').document(user).delete()
