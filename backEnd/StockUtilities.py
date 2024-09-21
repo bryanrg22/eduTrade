@@ -4,6 +4,7 @@ import matplotlib as plt
 import yfinance as yf
 import plotly.express as px
 import datapane as dp
+from GeminiPortal import *
 from flask import Flask, app, jsonify
 
 class StockUtilities:
@@ -27,5 +28,3 @@ class StockUtilities:
     
         # Convert DataFrame to JSON format
         return jsonify(stock_data['Close'].to_dict())
-
-    
