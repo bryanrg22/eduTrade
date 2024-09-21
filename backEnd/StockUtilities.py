@@ -4,7 +4,7 @@ import matplotlib as plt
 import yfinance as yf
 import plotly.express as px
 import datapane as dp
-from flask import Flask, jsonify
+from flask import Flask, app, jsonify
 
 class StockHistoryOutput:
     
