@@ -23,11 +23,12 @@ def get_user_data(ticker):
         return jsonify({"message": "Not Found!"})
 
 
-@app.route('/api/create_user', methods=['POST'])
+@app.route('/api/create_user')
 def create_user():
     try:
         # Extract data from request
         data = request.get_json()
+        print(data.get('name'))
         
         # Extract specific fields
         name = data.get('name')

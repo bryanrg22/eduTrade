@@ -14,7 +14,9 @@ db = firestore.client()
 # 'C'
 # prev. create_stock_analysis
 def create_user_in_firestore(name, user, age, email, password, portfolio_initial, retirement_age):
+    print(user)
     doc_ref = db.collection('user').document(user)
+
     data = {
         'name': name,
         'password': password,
