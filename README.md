@@ -21,7 +21,7 @@
 </div>
 
 ## Application Demo
-...
+https://github.com/user-attachments/assets/325452ee-d9b4-4fd8-b55f-f0c6fe43cbc5
 
 ## Overview
 This project puts forth an innovative approach to dissecting and promoting simple stock options—a fantastic tool for 
